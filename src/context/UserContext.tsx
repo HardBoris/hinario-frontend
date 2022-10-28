@@ -70,7 +70,7 @@ const UserProvider = ({ children }: UserProviderProps) => {
         localStorage.setItem("@Hinario:token", token);
         localStorage.setItem("@Hinario:user", JSON.stringify(user));
 
-        setData(token);
+        setData({ user, token });
       })
       .catch((error) => {
         setMensaje(error.response.data);
