@@ -1,0 +1,30 @@
+body,
+header,
+form,
+input,
+div,
+h1,
+h2,
+p,
+button,
+ul {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+body {
+  font-size: 16px;
+  width: 100vw;
+  height: 100vh;
+  color: black;
+  background-color: var(--oscuro);
+}
+
+:root {
+  --fondo: #c8d8f7;
+  --oscuro: #4e69c1;
+  --claro: #f4fbfd;
+  --oscuridad: #122b5b;
+}

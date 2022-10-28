@@ -1,4 +1,6 @@
-.app {
+header,
+main,
+footer {
   width: 320px;
   height: auto;
   margin: auto;
