@@ -5,36 +5,41 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Formulario } from "../../components/Form";
 import { useAuth } from "../../context/UserContext";
-import "./style.css";
 
 const signInSchema = yup.object().shape({
-  email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
-  password: yup.string().required("Senha obrigatória"),
+  email: yup.string().required("Campo obrigatório").email("E-mail inválido"),
+  password: yup.string().required("Campo obrigatório"),
+  confirmpassword: yup
+    .string()
+    .required("Campo obrigatório")
+    .oneOf([yup.ref("password")], "Password must match"),
 });
 
-interface txtData {
+interface txtInfo {
   email: string;
   password: string;
+  confirmpassword: string;
 }
 
-export const LoginForm = () => {
-  // const history = useNavigate();
+export const SignForm = () => {
+  const history = useNavigate();
 
-  const { signIn } = useAuth();
+  const { signUp } = useAuth();
   const {
     formState: { errors },
     register,
     handleSubmit,
-  } = useForm<txtData>({ resolver: yupResolver(signInSchema) });
+  } = useForm<txtInfo>({ resolver: yupResolver(signInSchema) });
 
-  const sender = (data: txtData) => {
-    signIn(data);
+  const sender = (data: txtInfo) => {
+    const { confirmpassword, ...dataInfo } = data;
+    signUp(dataInfo);
   };
 
   return (
     <Formulario onSubmit={handleSubmit(sender)}>
       <div className="form-title">
-        <h2>Login</h2>
+        <h2>Seus Dados</h2>
       </div>
       <div className="fields">
         <Input
@@ -52,13 +57,21 @@ export const LoginForm = () => {
           label="Senha"
           type="password"
         />
+
+        <Input
+          register={register}
+          name="confirmpassword"
+          error={errors.confirmpassword?.message}
+          label="Confirmar Senha"
+          type="password"
+        />
       </div>
       <div className="column-actions">
-        <button type="submit">Entrar</button>
+        <button type="submit">Cadastrar</button>
         <p>
-          Não tem conta?{" "}
+          Já possue uma conta?{" "}
           <span>
-            <a href="/signup">Cadastre-se!</a>
+            <a href="/login">Faça LogIn!</a>
           </span>
         </p>
       </div>
