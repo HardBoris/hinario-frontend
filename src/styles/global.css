@@ -20,6 +20,9 @@ body {
   height: 100vh;
   color: black;
   background-color: var(--oscuro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 :root {
@@ -27,4 +30,5 @@ body {
   --oscuro: #4e69c1;
   --claro: #f4fbfd;
   --oscuridad: #122b5b;
+  --medio-oscuro: #7598d8;
 }

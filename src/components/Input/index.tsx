@@ -1,4 +1,4 @@
-// import { Container } from "./style";
+import "./style.css";
 import { InputHTMLAttributes } from "react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -17,12 +17,12 @@ export const Input = ({
   ...rest
 }: InputProps) => {
   return (
-    <>
-      <div>
+    <div className="input-form">
+      <div className="input-label">
         {label} {!!error && <span>: {error} </span>}
       </div>
 
-      <input {...register(name)} {...rest} />
-    </>
+      <input {...register(name)} {...rest} className="input-input" />
+    </div>
   );
 };
