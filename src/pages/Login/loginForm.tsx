@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { Input } from "../../components/Input";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -6,6 +5,7 @@ import * as yup from "yup";
 import { Formulario } from "../../components/Form";
 import { useAuth } from "../../context/UserContext";
 import "./style.css";
+import { Button } from "../../components/Button";
 
 const signInSchema = yup.object().shape({
   email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
@@ -18,8 +18,6 @@ interface txtData {
 }
 
 export const LoginForm = () => {
-  // const history = useNavigate();
-
   const { signIn } = useAuth();
   const {
     formState: { errors },
@@ -54,7 +52,9 @@ export const LoginForm = () => {
         />
       </div>
       <div className="column-actions">
-        <button type="submit">Entrar</button>
+        <Button type="submit" className="positivo">
+          Entrar
+        </Button>
         <p>
           Não tem conta?{" "}
           <span>

@@ -67,7 +67,9 @@ export const SignForm = () => {
         />
       </div>
       <div className="column-actions">
-        <button type="submit">Cadastrar</button>
+        <button type="submit" className="positivo">
+          Cadastrar
+        </button>
         <p>
           Já possue uma conta?{" "}
           <span>
