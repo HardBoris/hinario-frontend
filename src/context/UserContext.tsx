@@ -1,10 +1,4 @@
-import {
-  createContext,
-  ReactNode,
-  useCallback,
-  useContext,
-  useState,
-} from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 
 import { localApi as api } from "../services/api";
 
@@ -28,11 +22,18 @@ interface SignInCredentials {
   password: string;
 }
 
+/* interface SignUpData {
+  email: string;
+  password: string;
+  confirmpassword: string;
+} */
+
 interface UserContextData {
   user: User;
   token: string;
   signIn: (credentials: SignInCredentials) => Promise<void>;
   signOut: () => void;
+  signUp: (info: SignInCredentials) => void;
   mensaje: string;
 }
 
@@ -61,7 +62,7 @@ const UserProvider = ({ children }: UserProviderProps) => {
     return {} as AuthState;
   });
 
-  const signIn = useCallback(async ({ email, password }: SignInCredentials) => {
+  const signIn = async ({ email, password }: SignInCredentials) => {
     await api
       .post("/users/login", { email, password })
       .then((response) => {
@@ -75,14 +76,31 @@ const UserProvider = ({ children }: UserProviderProps) => {
       .catch((error) => {
         setMensaje(error.response.data);
       });
-  }, []);
+  };
 
-  const signOut = useCallback(() => {
+  const signUp = ({ email, password }: SignInCredentials) => {
+    // setLoading(true);
+
+    api
+      .post("/users/register", { email, password })
+      .then((response) => {
+        console.log(response);
+        // setLoading(false);
+        // onModalSuccessOpen();
+      })
+      .catch((err) => {
+        console.log(err);
+        // setLoading(false);
+        // onModalErrorOpen();
+      });
+  };
+
+  const signOut = () => {
     localStorage.removeItem("@Hinario:token");
     localStorage.removeItem("@Hinario:user");
 
     setData({} as AuthState);
-  }, []);
+  };
 
   return (
     <UserContext.Provider
@@ -91,6 +109,7 @@ const UserProvider = ({ children }: UserProviderProps) => {
         user: data.user,
         signIn,
         signOut,
+        signUp,
         mensaje,
       }}
     >

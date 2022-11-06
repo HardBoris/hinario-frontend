@@ -9,10 +9,6 @@ import { useAuth } from "../../context/UserContext";
 const signInSchema = yup.object().shape({
   email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
   password: yup.string().required("Senha obrigatória"),
-  /* confirmPassword: yup
-    .string()
-    .required("Senha obrigatória")
-    .oneOf([yup.ref("password")], "Password must match"), */
 });
 
 interface txtData {
@@ -31,39 +27,35 @@ export const Login = () => {
   } = useForm<txtData>({ resolver: yupResolver(signInSchema) });
 
   const sender = (data: txtData) => {
-    console.log(data);
     signIn(data);
   };
 
   return (
-    <>
-      <Formulario onSubmit={handleSubmit(sender)}>
-        <div className="titulo">
-          <h1>Login</h1>
-        </div>
-        <div className="entrada">
-          <Input
-            register={register}
-            name="email"
-            error={errors.email?.message}
-            label="Email"
-            placeholder="fulanito@detal.com"
-          />
+    <Formulario onSubmit={handleSubmit(sender)}>
+      <div className="titulo">
+        <h1>Login</h1>
+      </div>
+      <div className="entrada">
+        <Input
+          register={register}
+          name="email"
+          error={errors.email?.message}
+          label="Email"
+          placeholder="fulanito@detal.com"
+        />
 
-          <Input
-            register={register}
-            name="password"
-            error={errors.password?.message}
-            label="Senha"
-            type="password"
-          />
-        </div>
-        <div className="botonera">
-          <button onClick={() => history("/")}>Home</button>
-          <button onClick={() => history("/signup")}>SignUp</button>
-          <button type="submit">enviar</button>
-        </div>
-      </Formulario>
-    </>
+        <Input
+          register={register}
+          name="password"
+          error={errors.password?.message}
+          label="Senha"
+          type="password"
+        />
+      </div>
+      <div className="botonera">
+        <button onClick={() => history("/signup")}>SignUp</button>
+        <button type="submit">Entrar</button>
+      </div>
+    </Formulario>
   );
 };
