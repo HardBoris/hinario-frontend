@@ -1,8 +1,9 @@
-.sign-set {
+/* .sign-set {
   color: var(--oscuridad);
   width: 300px;
   height: 480px;
-}
+  margin: auto;
+} */
 
 .sign-intro {
   height: 130px;
@@ -10,13 +11,19 @@
   justify-content: center;
   align-items: center;
   background-color: var(--fondo);
-  font-size: 0.75rem;
+  /* font-size: 0.75rem; */
 }
 
 .sign-form {
-  height: 340px;
+  height: 400px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   background-color: var(--medio-oscuro);
+}
+
+@media (min-width: 430px) and (max-width: 768px) {
+  .sign-form {
+    justify-content: center;
+  }
 }

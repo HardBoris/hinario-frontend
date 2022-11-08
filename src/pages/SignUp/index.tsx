@@ -3,7 +3,7 @@ import { SignIntro } from "./signIntro";
 
 export const SignUp = () => {
   return (
-    <div className="sign-set">
+    <div className="group">
       <div className="sign-intro">
         <SignIntro />
       </div>

@@ -4,7 +4,7 @@ import "./style.css";
 
 export const Login = () => {
   return (
-    <div className="login-set">
+    <div className="group">
       <div className="login-intro">
         <LoginIntro />
       </div>

@@ -2,11 +2,27 @@
   width: 320px;
   height: auto;
   margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background: var(--fondo);
-  font-size: calc(12px + (20 - 12) * ((100vw - 300px) / (1800 - 300)));
+  /* font-size: calc(10px + (16 - 10) * ((100vw - 300px) / (1440 - 300))); */
   border-radius: 0.5rem;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-size: 0.7rem;
+}
+
+@media (min-width: 430px) and (max-width: 768px) {
+  .app {
+    /* font-size: calc(14px + (16 - 14) * ((100vw - 430px) / (768 - 430))); */
+    width: 420px;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .app {
+    /* font-size: calc(10px + (16 - 10) * ((100vw - 769px) / (1440 - 769))); */
+    width: 90vw;
+    max-width: 1200px;
+    /* font-size: 0.6rem; */
+  }
 }

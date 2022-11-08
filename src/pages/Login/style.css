@@ -1,8 +1,9 @@
-.login-set {
+/* .login-set {
   color: var(--oscuridad);
   width: 300px;
   height: 480px;
-}
+  margin: auto;
+} */
 
 .login-intro {
   height: 130px;
@@ -20,13 +21,14 @@
   background-color: var(--medio-oscuro);
 }
 
-.positivo {
-  background-color: #408080;
-  color: var(--claro);
+@media (min-width: 430px) and (max-width: 768px) {
+  .login-form {
+    justify-content: center;
+  }
 }
 
-.positivo:hover {
-  border: 2px solid #408080;
-  color: #408080;
-  background-color: var(--claro);
+@media (min-width: 769px) {
+  .login-set {
+    display: block;
+  }
 }

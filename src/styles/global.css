@@ -33,6 +33,13 @@ body {
   --medio-oscuro: #7598d8;
 }
 
+.group {
+  color: var(--oscuridad);
+  width: 300px;
+  height: auto;
+  margin: auto;
+}
+
 .form-title {
   height: 15%;
   width: 300px;
@@ -55,4 +62,31 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.positivo {
+  background-color: #408080;
+  color: var(--claro);
+}
+
+.positivo:hover {
+  border: 2px solid #408080;
+  color: #408080;
+  background-color: var(--claro);
+}
+
+@media (min-width: 430px) and (max-width: 768px) {
+  .group {
+    width: 400px;
+  }
+}
+
+@media (min-width: 769px) {
+  .group {
+    width: 80%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 }
