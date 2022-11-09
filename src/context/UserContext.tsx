@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { localApi as api } from "../services/api";
 
@@ -14,7 +15,7 @@ interface User {
 
 interface AuthState {
   token: string;
-  user: User;
+  user: string;
 }
 
 interface SignInCredentials {
@@ -29,12 +30,13 @@ interface SignInCredentials {
 } */
 
 interface UserContextData {
-  user: User;
+  user: string;
   token: string;
   signIn: (credentials: SignInCredentials) => Promise<void>;
   signOut: () => void;
   signUp: (info: SignInCredentials) => void;
   mensaje: string;
+  email: string;
 }
 
 const UserContext = createContext<UserContextData>({} as UserContextData);
@@ -50,13 +52,15 @@ const useAuth = () => {
 };
 
 const UserProvider = ({ children }: UserProviderProps) => {
+  const history = useNavigate();
+  const [email, setEmail] = useState("");
   const [mensaje, setMensaje] = useState("");
   const [data, setData] = useState<AuthState>(() => {
     const token = localStorage.getItem("@Hinario:token");
     const user = localStorage.getItem("@Hinario:user");
 
     if (token && user) {
-      return { token, user: JSON.parse(user) };
+      return { token, user };
     }
 
     return {} as AuthState;
@@ -69,7 +73,7 @@ const UserProvider = ({ children }: UserProviderProps) => {
         const { user, token } = response.data;
         console.log(response);
         localStorage.setItem("@Hinario:token", token);
-        localStorage.setItem("@Hinario:user", JSON.stringify(user));
+        localStorage.setItem("@Hinario:user", user);
 
         setData({ user, token });
       })
@@ -78,28 +82,28 @@ const UserProvider = ({ children }: UserProviderProps) => {
       });
   };
 
-  const signUp = ({ email, password }: SignInCredentials) => {
-    // setLoading(true);
-
-    api
+  const signUp = async ({ email, password }: SignInCredentials) => {
+    await api
       .post("/users/register", { email, password })
       .then((response) => {
-        console.log(response);
-        // setLoading(false);
-        // onModalSuccessOpen();
+        console.log(response.data);
+        const { email } = response.data;
+        // localStorage.setItem("@Hinario:email", email);
+        setEmail(email);
       })
+      .then(() => history("/login"))
       .catch((err) => {
         console.log(err);
-        // setLoading(false);
-        // onModalErrorOpen();
       });
   };
 
   const signOut = () => {
     localStorage.removeItem("@Hinario:token");
     localStorage.removeItem("@Hinario:user");
+    // localStorage.removeItem("@Hinario:email");
 
     setData({} as AuthState);
+    setEmail("");
   };
 
   return (
@@ -111,6 +115,7 @@ const UserProvider = ({ children }: UserProviderProps) => {
         signOut,
         signUp,
         mensaje,
+        email,
       }}
     >
       {children}

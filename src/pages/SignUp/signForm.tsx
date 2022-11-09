@@ -31,9 +31,10 @@ export const SignForm = () => {
     handleSubmit,
   } = useForm<txtInfo>({ resolver: yupResolver(signInSchema) });
 
-  const sender = (data: txtInfo) => {
+  const sender = async (data: txtInfo) => {
     const { confirmpassword, ...dataInfo } = data;
     signUp(dataInfo);
+    history("/login");
   };
 
   return (

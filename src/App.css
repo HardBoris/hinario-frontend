@@ -22,7 +22,7 @@
   .app {
     /* font-size: calc(10px + (16 - 10) * ((100vw - 769px) / (1440 - 769))); */
     width: 90vw;
-    max-width: 1200px;
+    max-width: 1020px;
     /* font-size: 0.6rem; */
   }
 }

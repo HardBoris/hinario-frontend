@@ -6,6 +6,7 @@ import { Formulario } from "../../components/Form";
 import { useAuth } from "../../context/UserContext";
 import "./style.css";
 import { Button } from "../../components/Button";
+import { useNavigate } from "react-router-dom";
 
 const signInSchema = yup.object().shape({
   email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
@@ -18,7 +19,11 @@ interface txtData {
 }
 
 export const LoginForm = () => {
-  const { signIn } = useAuth();
+  const history = useNavigate();
+
+  // const emailRecovered = localStorage.getItem("@Hinario:email");
+
+  const { signIn, email } = useAuth();
   const {
     formState: { errors },
     register,
@@ -27,6 +32,7 @@ export const LoginForm = () => {
 
   const sender = (data: txtData) => {
     signIn(data);
+    history("/");
   };
 
   return (
@@ -41,6 +47,7 @@ export const LoginForm = () => {
           error={errors.email?.message}
           label="Email"
           placeholder="fulanito@detal.com"
+          defaultValue={email}
         />
 
         <Input

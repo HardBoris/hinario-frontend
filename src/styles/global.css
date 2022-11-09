@@ -83,7 +83,7 @@ body {
 
 @media (min-width: 769px) {
   .group {
-    width: 80%;
+    width: 90%;
     max-width: 1000px;
     display: flex;
     justify-content: space-evenly;

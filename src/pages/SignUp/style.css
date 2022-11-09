@@ -27,3 +27,9 @@
     justify-content: center;
   }
 }
+
+@media (min-width: 769px) {
+  .sign-set {
+    flex-direction: row-reverse;
+  }
+}
