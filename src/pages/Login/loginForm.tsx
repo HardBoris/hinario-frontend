@@ -47,7 +47,7 @@ export const LoginForm = () => {
           error={errors.email?.message}
           label="Email"
           placeholder="fulanito@detal.com"
-          defaultValue={email}
+          defaultValue={email ? email : ""}
         />
 
         <Input

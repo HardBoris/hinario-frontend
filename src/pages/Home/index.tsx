@@ -1,22 +1,26 @@
-import { useNavigate } from "react-router-dom";
-import "../../styles/layout.css";
-import { useAuth } from "../../context/UserContext";
+// import { useNavigate } from "react-router-dom";
+import "../../styles/global.css";
+// import { useAuth } from "../../context/UserContext";
 import { NavBar } from "../../components/NavBar";
+import "./style.css";
 
 export const Home = () => {
-  const history = useNavigate();
-  const { signOut } = useAuth();
+  // const history = useNavigate();
+  // const { signOut } = useAuth();
   return (
     <>
-      <NavBar />
-      <h1>Home</h1>
-
+      <header>
+        <h1>Novo Hinário Adventista</h1>
+      </header>
       <main>
-        <button onClick={() => history("/")}>Login</button>
-        <button onClick={() => history("signup")}>SignUp</button>
-        <button onClick={() => signOut()}>LogOut</button>
+        <h1>Igreja Adventista do Sétimo Dia</h1>
+        <div className="fields">
+          <input type="text" />
+        </div>
       </main>
-      <footer></footer>
+      <footer>
+        <NavBar />
+      </footer>
     </>
   );
 };
