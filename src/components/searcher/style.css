@@ -1,0 +1,11 @@
+.searcher__form {
+  width: 100%;
+}
+
+.searcher__input {
+  border: none;
+  width: 90%;
+  height: 3em;
+  border-radius: 0.5rem;
+  padding-left: 1rem;
+}

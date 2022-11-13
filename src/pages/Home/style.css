@@ -1,7 +1,75 @@
-h1 {
-  text-shadow: 2px 2px 5px var(--verde-cobre);
+.header__lettering {
+  width: 100%;
+  font-size: 1.2rem;
 }
 
-.fields {
-  width: 90%;
+/* h1 {
+  text-align: center;
+} */
+
+.header__content {
+  display: none;
+}
+
+@media (min-width: 430px) and (max-width: 768px) {
+  .header__lettering {
+    /* width: 40%; */
+  }
+
+  .header__content {
+    /* width: 60%; */
+  }
+}
+
+@media (min-width: 769px) {
+  h1 {
+    /* font-size: 1.1rem; */
+  }
+
+  .fields {
+    width: 90%;
+  }
+
+  nav {
+    /* overflow-x: scroll; */
+    /* display: flex;
+    justify-content: space-evenly;
+    align-items: center; */
+    width: 100%;
+  }
+
+  .header__searcher {
+    width: 20%;
+  }
+
+  .header__lettering {
+    width: 100%;
+    text-align: center;
+    padding: 0 20px;
+    font-size: 1rem;
+  }
+
+  .header__content {
+    width: 80%;
+    display: block;
+  }
+
+  .header__navigator {
+    width: 100%;
+    font-size: 0.8rem;
+    /* word-wrap: normal; */
+    /* text-align: center; */
+  }
+
+  aside {
+    width: 20%;
+    height: 100%;
+    background-color: var(--yellow-500-ligth);
+    padding: 20px;
+  }
+
+  section {
+    width: 80%;
+    height: 100%;
+  }
 }

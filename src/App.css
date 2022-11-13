@@ -5,24 +5,24 @@
   background: var(--fondo);
   /* font-size: calc(10px + (16 - 10) * ((100vw - 300px) / (1440 - 300))); */
   border-radius: 0.5rem;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  font-size: 0.7rem;
+  padding: 10px 0;
+  /* font-size: 1rem; */
 }
 
 @media (min-width: 430px) and (max-width: 768px) {
   .app {
     /* font-size: calc(14px + (16 - 14) * ((100vw - 430px) / (768 - 430))); */
     width: 420px;
-    font-size: 1rem;
+    /* font-size: 1rem; */
   }
 }
 
 @media (min-width: 769px) {
   .app {
     /* font-size: calc(10px + (16 - 10) * ((100vw - 769px) / (1440 - 769))); */
-    width: 90vw;
-    max-width: 1020px;
+    width: 100vw;
+    /* max-width: 1020px; */
+    padding: 0;
     /* font-size: 0.6rem; */
   }
 }
