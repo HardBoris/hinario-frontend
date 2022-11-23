@@ -1,5 +1,6 @@
 // import { useNavigate } from "react-router-dom";
 import "../../styles/global.css";
+import "../../styles/layout.css";
 // import { useAuth } from "../../context/UserContext";
 import { NavBar } from "../../components/NavBar";
 import "./style.css";
@@ -34,8 +35,8 @@ export const Home = () => {
       <main>
         <aside>
           <nav>
-            {hymnalSections.map((item) => (
-              <div className="header__navigator">
+            {hymnalSections.map((item, index) => (
+              <div className="header__navigator" key={index}>
                 <Link to={item.way}>{item.lettering}</Link>
               </div>
             ))}

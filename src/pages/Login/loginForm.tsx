@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Formulario } from "../../components/Form";
 import { useAuth } from "../../context/UserContext";
-import "./style.css";
+// import "./style.css";
 import { Button } from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 

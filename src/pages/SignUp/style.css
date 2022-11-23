@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--blue-200-200);
+  /* background-color: var(--blue-200-200); */
   /* font-size: 0.75rem; */
 }
 
@@ -19,7 +19,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: var(--medio-oscuro);
+  /* background-color: var(--medio-oscuro); */
 }
 
 @media (min-width: 430px) and (max-width: 768px) {
@@ -29,6 +29,9 @@
 }
 
 @media (min-width: 769px) {
+  .sign-form {
+    height: 500px;
+  }
   .sign-set {
     flex-direction: row-reverse;
   }

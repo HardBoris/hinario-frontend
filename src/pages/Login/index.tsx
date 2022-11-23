@@ -1,6 +1,7 @@
 import { LoginForm } from "./loginForm";
 import { LoginIntro } from "./loginIntro";
 import "./style.css";
+import "../../styles/layout.css";
 
 export const Login = () => {
   return (

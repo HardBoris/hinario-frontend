@@ -1,8 +1,7 @@
 form {
   height: 100%;
-  /* border: 2px solid red; */
-  /* border-radius: 8px; */
-  /* padding: 10px; */
-  /* flex-direction: column; */
-  /* margin: auto; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }

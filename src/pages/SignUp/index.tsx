@@ -1,5 +1,6 @@
 import { SignForm } from "./signForm";
 import { SignIntro } from "./signIntro";
+import "../../styles/layout.css";
 
 export const SignUp = () => {
   return (
