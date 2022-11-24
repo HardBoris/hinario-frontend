@@ -7,11 +7,11 @@ interface UserProviderProps {
   children: ReactNode;
 }
 
-interface User {
+/* interface User {
   email: string;
   userId: string;
   userCategory: string;
-}
+} */
 
 interface AuthState {
   token: string;
@@ -22,12 +22,6 @@ interface SignInCredentials {
   email: string;
   password: string;
 }
-
-/* interface SignUpData {
-  email: string;
-  password: string;
-  confirmpassword: string;
-} */
 
 interface UserContextData {
   user: string;
@@ -55,6 +49,11 @@ const UserProvider = ({ children }: UserProviderProps) => {
   const history = useNavigate();
   const [email, setEmail] = useState("");
   const [mensaje, setMensaje] = useState("");
+  /* const [data, setData] = useState({
+    token: "",
+    user: "",
+  }); */
+
   const [data, setData] = useState<AuthState>(() => {
     const token = localStorage.getItem("@Hinario:token");
     const user = localStorage.getItem("@Hinario:user");
@@ -71,7 +70,6 @@ const UserProvider = ({ children }: UserProviderProps) => {
       .post("/users/login", { email, password })
       .then((response) => {
         const { user, token } = response.data;
-        console.log(response);
         localStorage.setItem("@Hinario:token", token);
         localStorage.setItem("@Hinario:user", user);
 
@@ -88,7 +86,6 @@ const UserProvider = ({ children }: UserProviderProps) => {
       .then((response) => {
         console.log(response.data);
         const { email } = response.data;
-        // localStorage.setItem("@Hinario:email", email);
         setEmail(email);
       })
       .then(() => history("/login"))
@@ -100,7 +97,6 @@ const UserProvider = ({ children }: UserProviderProps) => {
   const signOut = () => {
     localStorage.removeItem("@Hinario:token");
     localStorage.removeItem("@Hinario:user");
-    // localStorage.removeItem("@Hinario:email");
 
     setData({} as AuthState);
     setEmail("");

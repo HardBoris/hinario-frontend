@@ -8,6 +8,7 @@ import {
 // import { useNavigate } from "react-router-dom";
 
 import { localApi as api } from "../services/api";
+import { useAuth } from "../context/UserContext";
 
 interface HymnProviderProps {
   children: ReactNode;
@@ -29,7 +30,14 @@ interface HymnProviderProps {
   password: string;
 } */
 
+export interface Hino {
+  hymnId: string;
+  hymnNumber: string;
+  hymnTitle: string;
+}
+
 interface HymnContextData {
+  hinario: Hino[];
   /* user: string;
   token: string;
   signIn: (credentials: SignInCredentials) => Promise<void>;
@@ -48,12 +56,18 @@ const useHymns = () => useContext(HymnContext);
 const HymnProvider = ({ children }: HymnProviderProps) => {
   // const history = useNavigate();
   // const [email, setEmail] = useState("");
+  // const [hino, setHino] = useState<Hino>({} as Hino)
   const [mensaje, setMensaje] = useState("");
   const [hinario, setHinario] = useState([]);
+  const { token } = useAuth();
 
   const hymnal = async () => {
     await api
-      .get("/hymns")
+      .get("/hymns", {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         console.log(response);
         setHinario(response.data);
@@ -71,7 +85,7 @@ const HymnProvider = ({ children }: HymnProviderProps) => {
   console.log(mensaje);
 
   return (
-    <HymnContext.Provider value={{ hymnal }}>{children}</HymnContext.Provider>
+    <HymnContext.Provider value={{ hinario }}>{children}</HymnContext.Provider>
   );
 };
 
