@@ -62,8 +62,8 @@ const HymnProvider = ({ children }: HymnProviderProps) => {
   const [hinario, setHinario] = useState([]);
   const { token } = useAuth();
 
-  const hymnal = async () => {
-    await api
+  const hymnal = () => {
+    api
       .get("/hymns", {
         headers: {
           authorization: `Bearer ${token}`,

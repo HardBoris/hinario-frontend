@@ -18,7 +18,7 @@ export const Home = () => {
   // const { signOut } = useAuth();
 
   // const hymnalSections = getHymnalSections();
-  const { hinario } = useHymns();
+  const { hinario, mensaje } = useHymns();
   const [prueba, setPrueba] = useState({} as Hino);
   const { signOut } = useAuth();
 
@@ -51,21 +51,23 @@ export const Home = () => {
             ))}
           </nav> */}
           <div style={{ height: "100%", overflow: "auto" }}>
-            {hinario
-              ? hinario.map((item) => (
-                  <div
-                    key={item.hymnId}
-                    role="button"
-                    onClick={() => setPrueba(item)}
-                    style={{ cursor: "pointer" }}
-                  >
-                    <p>
-                      <span>{item.hymnNumber} - </span>
-                      {item.hymnTitle}
-                    </p>
-                  </div>
-                ))
-              : "Sin Items"}
+            {hinario[0] ? (
+              hinario.map((item) => (
+                <div
+                  key={item.hymnId}
+                  role="button"
+                  onClick={() => setPrueba(item)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <p>
+                    <span>{item.hymnNumber} - </span>
+                    {item.hymnTitle}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <div>{mensaje}</div>
+            )}
           </div>
         </aside>
         <section>
