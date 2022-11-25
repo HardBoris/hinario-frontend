@@ -137,7 +137,7 @@ h1 {
 
 @media (min-width: 769px) {
   .app {
-    width: 96vw;
+    width: 100vw;
     padding: 0;
   }
 

@@ -5,7 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
-// import { useNavigate } from "react-router-dom";
+// import { useNavigate, redirect } from "react-router-dom";
 
 import { localApi as api } from "../services/api";
 import { useAuth } from "../context/UserContext";
@@ -38,6 +38,7 @@ export interface Hino {
 
 interface HymnContextData {
   hinario: Hino[];
+  mensaje: string;
   /* user: string;
   token: string;
   signIn: (credentials: SignInCredentials) => Promise<void>;
@@ -69,11 +70,12 @@ const HymnProvider = ({ children }: HymnProviderProps) => {
         },
       })
       .then((response) => {
-        console.log(response);
         setHinario(response.data);
+        setMensaje("");
       })
       .catch((error) => {
-        setMensaje(error.response.data);
+        let message = error.response.data.message;
+        setMensaje(message);
       });
   };
 
@@ -85,7 +87,9 @@ const HymnProvider = ({ children }: HymnProviderProps) => {
   console.log(mensaje);
 
   return (
-    <HymnContext.Provider value={{ hinario }}>{children}</HymnContext.Provider>
+    <HymnContext.Provider value={{ hinario, mensaje }}>
+      {children}
+    </HymnContext.Provider>
   );
 };
 

@@ -49,10 +49,7 @@ const UserProvider = ({ children }: UserProviderProps) => {
   const history = useNavigate();
   const [email, setEmail] = useState("");
   const [mensaje, setMensaje] = useState("");
-  /* const [data, setData] = useState({
-    token: "",
-    user: "",
-  }); */
+  // const [data, setData] = useState({} as AuthState);
 
   const [data, setData] = useState<AuthState>(() => {
     const token = localStorage.getItem("@Hinario:token");

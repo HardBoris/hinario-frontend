@@ -10,6 +10,7 @@ import "./style.css";
 import { Searcher } from "../../components/searcher";
 import { HymnDisplay } from "../../components/Card";
 import { Hino, useHymns } from "../../context/HymnContext";
+import { useAuth } from "../../context/UserContext";
 import { useState } from "react";
 
 export const Home = () => {
@@ -18,7 +19,8 @@ export const Home = () => {
 
   // const hymnalSections = getHymnalSections();
   const { hinario } = useHymns();
-  const [prueba, setPrueba] = useState<Hino>({} as Hino);
+  const [prueba, setPrueba] = useState({} as Hino);
+  const { signOut } = useAuth();
 
   return (
     <>
@@ -35,6 +37,9 @@ export const Home = () => {
             <h1>Novo Hinário Adventista</h1>
           </div>
         </div>
+        <div style={{ width: "150px" }}>
+          <button onClick={() => signOut()}>Salir</button>
+        </div>
       </header>
       <main>
         <aside>
@@ -46,24 +51,25 @@ export const Home = () => {
             ))}
           </nav> */}
           <div style={{ height: "100%", overflow: "auto" }}>
-            {hinario.map((item) => (
-              <div
-                key={item.hymnId}
-                role="button"
-                onClick={() => setPrueba(item)}
-                style={{ cursor: "pointer" }}
-              >
-                <p>
-                  <span>{item.hymnNumber} - </span>
-                  {item.hymnTitle}
-                </p>
-              </div>
-            ))}
+            {hinario
+              ? hinario.map((item) => (
+                  <div
+                    key={item.hymnId}
+                    role="button"
+                    onClick={() => setPrueba(item)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <p>
+                      <span>{item.hymnNumber} - </span>
+                      {item.hymnTitle}
+                    </p>
+                  </div>
+                ))
+              : "Sin Items"}
           </div>
         </aside>
         <section>
           <h1>Igreja Adventista do Sétimo Dia</h1>
-          <button>Iniciar</button>
           <div
             style={{
               width: "400px",
@@ -73,11 +79,17 @@ export const Home = () => {
               alignItems: "center",
             }}
           >
-            <HymnDisplay
-              numero={prueba.hymnNumber}
-              titulo={prueba.hymnTitle}
-              id={prueba.hymnId}
-            />
+            {prueba.hymnId ? (
+              <HymnDisplay
+                numero={prueba.hymnNumber}
+                titulo={prueba.hymnTitle}
+                id={prueba.hymnId}
+              />
+            ) : (
+              <div>
+                <h1>Selecciona un titulo</h1>
+              </div>
+            )}
           </div>
         </section>
       </main>
