@@ -38,7 +38,9 @@ export interface Hino {
 
 interface HymnContextData {
   hinario: Hino[];
+  filteredHymns: Hino[];
   mensaje: string;
+  filtered: (otion: string) => void;
   /* user: string;
   token: string;
   signIn: (credentials: SignInCredentials) => Promise<void>;
@@ -58,8 +60,9 @@ const HymnProvider = ({ children }: HymnProviderProps) => {
   // const history = useNavigate();
   // const [email, setEmail] = useState("");
   // const [hino, setHino] = useState<Hino>({} as Hino)
+  const [filteredHymns, setFilteredHymns] = useState<Hino[]>([]);
   const [mensaje, setMensaje] = useState("");
-  const [hinario, setHinario] = useState([]);
+  const [hinario, setHinario] = useState<Hino[]>([]);
   const { token } = useAuth();
 
   const hymnal = () => {
@@ -83,11 +86,20 @@ const HymnProvider = ({ children }: HymnProviderProps) => {
     hymnal();
   }, []);
 
+  const filtered = (option: string) => {
+    const filtro: Hino[] = hinario.filter(
+      (item) =>
+        item.hymnNumber.toLowerCase() === option.toLowerCase() ||
+        item.hymnTitle.toLowerCase() === option.toLowerCase()
+    );
+    setFilteredHymns(filtro);
+  };
+
   console.log(hinario);
   console.log(mensaje);
 
   return (
-    <HymnContext.Provider value={{ hinario, mensaje }}>
+    <HymnContext.Provider value={{ hinario, mensaje, filteredHymns, filtered }}>
       {children}
     </HymnContext.Provider>
   );
