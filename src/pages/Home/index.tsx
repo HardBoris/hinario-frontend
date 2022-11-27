@@ -52,7 +52,7 @@ export const Home = () => {
           </nav> */}
           <div style={{ height: "100%", overflow: "auto" }}>
             {filteredHymns.length === 0 ? (
-              hinario[0] ? (
+              hinario.length !== 0 ? (
                 hinario.map((item) => (
                   <div
                     key={item.hymnId}

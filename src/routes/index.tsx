@@ -1,8 +1,8 @@
-import { Navigate, redirect, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { PrivateRoutes } from "./PrivateRoutes";
 import { useAuth } from "../context/UserContext";
 import { PublicRoutes } from "./PublicRoutes";
-import { useHymns } from "../context/HymnContext";
+// import { useHymns } from "../context/HymnContext";
 
 // import { useLocation } from "react-router-dom";
 
