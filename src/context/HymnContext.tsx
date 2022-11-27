@@ -39,6 +39,7 @@ export interface Hino {
 interface HymnContextData {
   hinario: Hino[];
   mensaje: string;
+  hymnal: () => void;
   /* user: string;
   token: string;
   signIn: (credentials: SignInCredentials) => Promise<void>;
@@ -74,20 +75,20 @@ const HymnProvider = ({ children }: HymnProviderProps) => {
         setMensaje("");
       })
       .catch((error) => {
-        let message = error.response.data.message;
+        let message = error.response.data.message.message;
         setMensaje(message);
       });
   };
 
-  useEffect(() => {
+  /* useEffect(() => {
     hymnal();
-  }, []);
+  }, []); */
 
   console.log(hinario);
   console.log(mensaje);
 
   return (
-    <HymnContext.Provider value={{ hinario, mensaje }}>
+    <HymnContext.Provider value={{ hinario, mensaje, hymnal }}>
       {children}
     </HymnContext.Provider>
   );

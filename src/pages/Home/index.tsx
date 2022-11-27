@@ -11,14 +11,17 @@ import { Searcher } from "../../components/searcher";
 import { HymnDisplay } from "../../components/Card";
 import { Hino, useHymns } from "../../context/HymnContext";
 import { useAuth } from "../../context/UserContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Home = () => {
+  useEffect(() => {
+    hymnal();
+  }, []);
   // const history = useNavigate();
   // const { signOut } = useAuth();
 
   // const hymnalSections = getHymnalSections();
-  const { hinario, mensaje } = useHymns();
+  const { hinario, mensaje, hymnal } = useHymns();
   const [prueba, setPrueba] = useState({} as Hino);
   const { signOut } = useAuth();
 
