@@ -1,10 +1,4 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 // import { useNavigate, redirect } from "react-router-dom";
 
 import { localApi as api } from "../services/api";
@@ -41,6 +35,7 @@ interface HymnContextData {
   filteredHymns: Hino[];
   mensaje: string;
   filtered: (otion: string) => void;
+  hymnal: () => void;
   /* user: string;
   token: string;
   signIn: (credentials: SignInCredentials) => Promise<void>;
@@ -77,14 +72,14 @@ const HymnProvider = ({ children }: HymnProviderProps) => {
         setMensaje("");
       })
       .catch((error) => {
-        let message = error.response.data.message;
+        let message = error.response.data.message.message;
         setMensaje(message);
       });
   };
 
-  useEffect(() => {
+  /* useEffect(() => {
     hymnal();
-  }, []);
+  }, []); */
 
   const filtered = (option: string) => {
     const filtro: Hino[] = hinario.filter(
@@ -99,7 +94,9 @@ const HymnProvider = ({ children }: HymnProviderProps) => {
   console.log(mensaje);
 
   return (
-    <HymnContext.Provider value={{ hinario, mensaje, filteredHymns, filtered }}>
+    <HymnContext.Provider
+      value={{ hinario, mensaje, filteredHymns, filtered, hymnal }}
+    >
       {children}
     </HymnContext.Provider>
   );
