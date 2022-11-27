@@ -72,8 +72,9 @@ const HymnProvider = ({ children }: HymnProviderProps) => {
         setMensaje("");
       })
       .catch((error) => {
-        let message = error.response.data.message.message;
+        let message = error.response.data.error.message;
         setMensaje(message);
+        setHinario([]);
       });
   };
 
@@ -84,8 +85,10 @@ const HymnProvider = ({ children }: HymnProviderProps) => {
   const filtered = (option: string) => {
     const filtro: Hino[] = hinario.filter(
       (item) =>
-        item.hymnNumber.toLowerCase() === option.toLowerCase() ||
-        item.hymnTitle.toLowerCase() === option.toLowerCase()
+        /* item.hymnNumber.toLowerCase() === option.toLowerCase() ||
+        item.hymnTitle.toLowerCase() === option.toLowerCase() */
+        item.hymnNumber.toLowerCase().includes(option.toLowerCase()) ||
+        item.hymnTitle.toLowerCase().includes(option.toLowerCase())
     );
     setFilteredHymns(filtro);
   };

@@ -40,19 +40,12 @@ export const Home = () => {
             <h1>Novo Hinário Adventista</h1>
           </div>
         </div>
-        <div style={{ width: "150px" }}>
+        <div className="header__btn">
           <button onClick={() => signOut()}>Salir</button>
         </div>
       </header>
       <main>
         <aside>
-          {/* <nav>
-            {hymnalSections.map((item, index) => (
-              <div className="header__navigator" key={index}>
-                <Link to={item.way}>{item.lettering}</Link>
-              </div>
-            ))}
-          </nav> */}
           <div style={{ height: "100%", overflow: "auto" }}>
             {filteredHymns.length === 0 ? (
               hinario.length !== 0 ? (
@@ -91,15 +84,7 @@ export const Home = () => {
         </aside>
         <section>
           <h1>Igreja Adventista do Sétimo Dia</h1>
-          <div
-            style={{
-              width: "400px",
-              border: "2px solid red",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <div className="display__box">
             {prueba.hymnId ? (
               <HymnDisplay
                 numero={prueba.hymnNumber}
@@ -114,9 +99,7 @@ export const Home = () => {
           </div>
         </section>
       </main>
-      <footer>
-        <NavBar />
-      </footer>
+      <footer>Powered by BG</footer>
     </>
   );
 };

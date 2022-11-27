@@ -1,6 +1,23 @@
 .header__lettering {
   width: 100%;
   font-size: 1.2rem;
+  text-align: center;
+}
+
+.header__searcher {
+  width: 100%;
+}
+
+.header__btn {
+  width: 150px;
+  display: none;
+}
+
+.display__box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* h1 {
@@ -8,8 +25,11 @@
 } */
 
 .header__content {
-  display: none;
+  display: block;
 }
+/* section {
+  display: none;
+} */
 
 @media (min-width: 430px) and (max-width: 768px) {
   .header__lettering {

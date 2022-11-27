@@ -37,15 +37,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 2px solid black;
 }
 
 .app {
   width: 320px;
-  height: auto;
+  height: 100vh;
   margin: auto;
-  background: var(--blue-100-ligth);
-  border-radius: 0.5rem;
-  padding: 10px 0;
+  background: var(--turquoise-500-400);
+  border: 2px solid red;
+  /* border-radius: 0.5rem; */
+  /* padding: 10px 0; */
 }
 
 /* header {
@@ -147,11 +149,5 @@ h1 {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-  }
-
-  header {
-    /* flex-direction: row; */
-    /* align-items: center; */
-    /* font-size: 1.1rem; */
   }
 }
