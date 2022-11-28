@@ -12,6 +12,7 @@ import { HymnDisplay } from "../../components/Card";
 import { Hino, useHymns } from "../../context/HymnContext";
 import { useAuth } from "../../context/UserContext";
 import { useState, useEffect } from "react";
+import { displayPartsToString } from "typescript";
 
 export const Home = () => {
   useEffect(() => {
@@ -39,14 +40,14 @@ export const Home = () => {
           <div className="header__lettering">
             <h1>Novo Hinário Adventista</h1>
           </div>
-        </div>
-        <div className="header__btn">
-          <button onClick={() => signOut()}>Salir</button>
+          <div className="header__btn">
+            <button onClick={() => signOut()}>Salir</button>
+          </div>
         </div>
       </header>
       <main>
         <aside>
-          <div style={{ height: "100%", overflow: "auto" }}>
+          <div className="aside__list">
             {filteredHymns.length === 0 ? (
               hinario.length !== 0 ? (
                 hinario.map((item) => (
@@ -63,7 +64,9 @@ export const Home = () => {
                   </div>
                 ))
               ) : (
-                <div>{mensaje}</div>
+                <div className="aside__msg">
+                  <p>{mensaje}</p>
+                </div>
               )
             ) : (
               filteredHymns.map((item) => (
@@ -83,7 +86,9 @@ export const Home = () => {
           </div>
         </aside>
         <section>
-          <h1>Igreja Adventista do Sétimo Dia</h1>
+          <div className="section__title">
+            <h1>Igreja Adventista do Sétimo Dia</h1>
+          </div>
           <div className="display__box">
             {prueba.hymnId ? (
               <HymnDisplay
@@ -99,7 +104,11 @@ export const Home = () => {
           </div>
         </section>
       </main>
-      <footer>Powered by BG</footer>
+      <footer>
+        <div className="footer__btn">
+          <button onClick={() => signOut()}>Salir</button>
+        </div>
+      </footer>
     </>
   );
 };

@@ -1,35 +1,60 @@
-.header__lettering {
-  width: 100%;
-  font-size: 1.2rem;
-  text-align: center;
-}
-
-.header__searcher {
-  width: 100%;
-}
-
-.header__btn {
-  width: 150px;
-  display: none;
-}
-
-.display__box {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* h1 {
-  text-align: center;
+/* .header__searcher {
+  display: block;
 } */
 
 .header__content {
   display: block;
 }
-/* section {
+
+.header__lettering {
+  width: 100%;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.header__btn {
   display: none;
-} */
+}
+
+.aside__list {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: var(--blue-300-200);
+  color: var(--yellow-500-ligth);
+  padding-left: 1rem;
+}
+
+.aside__msg {
+  color: var(--red-500-ligth);
+  text-align: center;
+  background-color: var(--blue-full-dark);
+}
+
+.section__title {
+  width: 100%;
+  text-align: center;
+  display: none;
+}
+
+.display__box {
+  width: 100%;
+  height: 100%;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+}
+
+.footer__btn {
+  width: 150px;
+  text-align: center;
+}
+
+.footer__btn button {
+  background-color: var(--turquoise-500-400);
+  color: var(--turquoise-100-ligth);
+  font-size: 1.1rem;
+}
 
 @media (min-width: 430px) and (max-width: 768px) {
   .header__lettering {

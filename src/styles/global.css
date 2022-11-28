@@ -26,109 +26,27 @@ ul {
   --blue-100-ligth: #ccccff;
   --turquoise-500-400: #009999;
   --turquoise-100-ligth: #e6ffff;
+  --red-500-ligth: #ff0000;
 }
 
 body {
-  font-size: 16px;
   width: 100vw;
   height: 100vh;
+  margin: auto;
   color: var(--blue-full-dark);
   background-color: var(--blue-300-200);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid black;
+  font-size: 16px;
 }
 
-.app {
+#root {
   width: 320px;
   height: 100vh;
   margin: auto;
   background: var(--turquoise-500-400);
-  border: 2px solid red;
-  /* border-radius: 0.5rem; */
-  /* padding: 10px 0; */
-}
-
-/* header {
-  width: 100%;
-  height: 12vh;
-  background-color: var(--turquoise-500-400);
-  color: var(--turquoise-100-ligth);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-} */
-
-/* main {
-  width: 100%;
-  height: 76vh;
-  background-image: url("../assets/img/galapagos.jpg");
-  background-position: center;
-  background-size: cover;
-  color: var(--blue-full-dark);
-  display: flex;
-} */
-
-/* footer {
-  width: 100%;
-  height: 12vh;
-  background-color: var(--turquoise-100-ligth);
-  color: var(--turquoise-500-400);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* .group {
-  color: var(--blue-full-dark);
-  width: 300px;
-  height: auto;
-  margin: auto;
-} */
-
-/* .form-title {
-  height: 15%;
-  width: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--turquoise-100-ligth);
-} */
-
-/* .fields {
-  height: 60%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-} */
-
-/* .column-actions {
-  height: 25%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-} */
-
-/* .positivo {
-  background-color: var(--turquoise-500-400);
-  color: var(--turquoise-100-ligth);
-} */
-
-/* .positivo:hover {
-  border: 2px solid var(--turquoise-500-400);
-  color: var(--turquoise-500-400);
-  background-color: var(--turquoise-100-ligth);
-} */
-
-h1 {
-  font-size: clamp(1.3em, 1em + 1vw, 3em);
 }
 
 @media (min-width: 430px) and (max-width: 768px) {
-  .app {
+  #root {
     width: 420px;
   }
 
@@ -138,9 +56,8 @@ h1 {
 }
 
 @media (min-width: 769px) {
-  .app {
+  #root {
     width: 100vw;
-    padding: 0;
   }
 
   .group {

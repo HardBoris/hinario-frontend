@@ -1,3 +1,4 @@
+import "./style.css";
 export interface IHymnDisplay {
   numero: string;
   titulo: string;
@@ -6,21 +7,14 @@ export interface IHymnDisplay {
 
 export const HymnDisplay = ({ numero, titulo, id }: IHymnDisplay) => {
   return (
-    <div
-      style={{
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
-      <div style={{ width: "100%", textAlign: "center" }}>
+    <div className="hymn__card">
+      <div className="hymn__title">
         <h1>
           <span>{numero} - </span>
           {titulo}
         </h1>
       </div>
-      <div>
+      <div className="hymn__display">
         <iframe
           width="320"
           height="180"

@@ -24,7 +24,9 @@ export const Searcher = ({
 
   return (
     <div className="searcher__form">
-      <div className="searcher__label">Procura um Hino?</div>
+      <div className="searcher__label">
+        <p>Procura um Hino?</p>
+      </div>
       <div className="searcher__box">
         <input
           className="searcher__input"

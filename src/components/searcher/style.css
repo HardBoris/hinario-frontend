@@ -6,8 +6,13 @@
   align-items: center;
 }
 
+.searcher__label {
+  width: 100%;
+  text-align: center;
+}
+
 .searcher__box {
-  width: 90%;
+  width: 280px;
   height: 50px;
   background-color: var(--turquoise-100-ligth);
   border-radius: 0.5rem;
