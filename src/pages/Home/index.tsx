@@ -1,27 +1,17 @@
-// import { useNavigate } from "react-router-dom";
 import "../../styles/global.css";
 import "../../styles/layout.css";
-// import { useAuth } from "../../context/UserContext";
-import { NavBar } from "../../components/NavBar";
 import "./style.css";
-// import { Link } from "react-router-dom";
-// import { useState } from "react";
-// import { getHymnalSections } from "../../assets/data/HymnalSections";
 import { Searcher } from "../../components/searcher";
 import { HymnDisplay } from "../../components/Card";
 import { Hino, useHymns } from "../../context/HymnContext";
 import { useAuth } from "../../context/UserContext";
 import { useState, useEffect } from "react";
-import { displayPartsToString } from "typescript";
 
 export const Home = () => {
   useEffect(() => {
     hymnal();
   }, []);
-  // const history = useNavigate();
-  // const { signOut } = useAuth();
 
-  // const hymnalSections = getHymnalSections();
   const { hinario, mensaje, filteredHymns, hymnal } = useHymns();
   const [prueba, setPrueba] = useState({} as Hino);
   const { signOut } = useAuth();
@@ -97,7 +87,7 @@ export const Home = () => {
                 id={prueba.hymnId}
               />
             ) : (
-              <div>
+              <div className="display">
                 <h1>Selecciona un titulo</h1>
               </div>
             )}

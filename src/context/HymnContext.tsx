@@ -78,22 +78,15 @@ const HymnProvider = ({ children }: HymnProviderProps) => {
       });
   };
 
-  /* useEffect(() => {
-    hymnal();
-  }, []); */
-
   const filtered = (option: string) => {
     const filtro: Hino[] = hinario.filter(
       (item) =>
-        /* item.hymnNumber.toLowerCase() === option.toLowerCase() ||
-        item.hymnTitle.toLowerCase() === option.toLowerCase() */
         item.hymnNumber.toLowerCase().includes(option.toLowerCase()) ||
         item.hymnTitle.toLowerCase().includes(option.toLowerCase())
     );
     setFilteredHymns(filtro);
   };
 
-  console.log(hinario);
   console.log(mensaje);
 
   return (
