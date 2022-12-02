@@ -43,6 +43,9 @@ body {
   height: 100vh;
   margin: auto;
   background: var(--turquoise-500-400);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 430px) and (max-width: 768px) {

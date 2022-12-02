@@ -56,6 +56,16 @@
   font-size: 1.1rem;
 }
 
+.footer__logo {
+  display: none;
+}
+
+#bg__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (min-width: 430px) and (max-width: 768px) {
 }
 
@@ -92,6 +102,11 @@
 
   .footer__btn button {
     display: none;
+  }
+
+  .footer__logo {
+    display: block;
+    text-align: center;
   }
 
   .fields {

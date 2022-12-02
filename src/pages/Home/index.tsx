@@ -6,6 +6,7 @@ import { HymnDisplay } from "../../components/Card";
 import { Hino, useHymns } from "../../context/HymnContext";
 import { useAuth } from "../../context/UserContext";
 import { useState, useEffect } from "react";
+import { BGLogo } from "../../components/bg/bg";
 
 export const Home = () => {
   useEffect(() => {
@@ -17,7 +18,7 @@ export const Home = () => {
   const { signOut } = useAuth();
 
   return (
-    <>
+    <div className="app">
       <header>
         <div className="header__searcher">
           <Searcher
@@ -98,7 +99,15 @@ export const Home = () => {
         <div className="footer__btn">
           <button onClick={() => signOut()}>Salir</button>
         </div>
+        <div className="footer__logo">
+          <p>
+            Powered by{" "}
+            <span id="bg__logo">
+              <BGLogo />
+            </span>
+          </p>
+        </div>
       </footer>
-    </>
+    </div>
   );
 };

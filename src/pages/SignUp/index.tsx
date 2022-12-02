@@ -4,12 +4,14 @@ import "../../styles/layout.css";
 
 export const SignUp = () => {
   return (
-    <div className="group sign-set">
-      <div className="sign-intro">
-        <SignIntro />
-      </div>
-      <div className="sign-form">
-        <SignForm />
+    <div className="group">
+      <div className="form__group sign-set">
+        <div className="sign-intro">
+          <SignIntro />
+        </div>
+        <div className="sign-form">
+          <SignForm />
+        </div>
       </div>
     </div>
   );
