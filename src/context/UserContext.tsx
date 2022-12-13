@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { localApi as api } from "../services/api";
+import { api } from "../services/api";
 
 interface UserProviderProps {
   children: ReactNode;
