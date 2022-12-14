@@ -100,12 +100,12 @@ export const Home = () => {
           <button onClick={() => signOut()}>Salir</button>
         </div>
         <div className="footer__logo">
-          <p>
+          <div>
             Powered by{" "}
             <span id="bg__logo">
               <BGLogo />
             </span>
-          </p>
+          </div>
         </div>
       </footer>
     </div>
