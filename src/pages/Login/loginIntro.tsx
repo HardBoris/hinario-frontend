@@ -2,7 +2,7 @@
 export const LoginIntro = () => {
   return (
     <div>
-      <h1>Novo Hinário Adventista</h1>
+      <h1>Meu Hinário Adventista</h1>
     </div>
   );
 };
