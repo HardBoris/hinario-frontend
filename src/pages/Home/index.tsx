@@ -29,7 +29,7 @@ export const Home = () => {
         </div>
         <div className="header__content">
           <div className="header__lettering">
-            <h1>Novo Hinário Adventista</h1>
+            <h1>Meu Hinário Adventista</h1>
           </div>
           <div className="header__btn">
             <button onClick={() => signOut()}>Salir</button>

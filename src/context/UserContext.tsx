@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { api } from "../services/api";
+import { localApi as api } from "../services/api";
 
 interface UserProviderProps {
   children: ReactNode;
@@ -31,6 +31,7 @@ interface UserContextData {
   signUp: (info: SignInCredentials) => void;
   mensaje: string;
   email: string;
+  status: number;
 }
 
 const UserContext = createContext<UserContextData>({} as UserContextData);
@@ -49,7 +50,7 @@ const UserProvider = ({ children }: UserProviderProps) => {
   const history = useNavigate();
   const [email, setEmail] = useState("");
   const [mensaje, setMensaje] = useState("");
-  // const [data, setData] = useState({} as AuthState);
+  const [status, setStatus] = useState(0);
 
   const [data, setData] = useState<AuthState>(() => {
     const token = localStorage.getItem("@Hinario:token");
@@ -73,6 +74,8 @@ const UserProvider = ({ children }: UserProviderProps) => {
         setData({ user, token });
       })
       .catch((error) => {
+        console.log(error);
+        setStatus(error.response.status);
         setMensaje(error.response.data);
       });
   };
@@ -109,6 +112,7 @@ const UserProvider = ({ children }: UserProviderProps) => {
         signUp,
         mensaje,
         email,
+        status,
       }}
     >
       {children}

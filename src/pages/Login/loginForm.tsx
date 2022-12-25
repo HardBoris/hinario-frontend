@@ -7,6 +7,8 @@ import { useAuth } from "../../context/UserContext";
 // import "./style.css";
 import { Button } from "../../components/Button";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { InputPassword } from "../../components/InputPassword";
 
 const signInSchema = yup.object().shape({
   email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
@@ -23,7 +25,8 @@ export const LoginForm = () => {
 
   // const emailRecovered = localStorage.getItem("@Hinario:email");
 
-  const { signIn, email } = useAuth();
+  const { signIn, email, status } = useAuth();
+  const [isText, setIsText] = useState(false);
   const {
     formState: { errors },
     register,
@@ -35,10 +38,20 @@ export const LoginForm = () => {
     history("/");
   };
 
+  const showPassword = () => {
+    setIsText(!isText);
+    console.log(isText);
+    return isText;
+  };
+
   return (
     <Formulario onSubmit={handleSubmit(sender)}>
       <div className="form-title">
-        <h2>Login</h2>
+        {status === 404 ? (
+          <p>Usuario não existe, por favor cadastre-se!</p>
+        ) : (
+          <h2>Login</h2>
+        )}
       </div>
       <div className="fields">
         <Input
@@ -46,17 +59,20 @@ export const LoginForm = () => {
           name="email"
           error={errors.email?.message}
           label="Email"
-          placeholder="fulanito@detal.com"
-          defaultValue={email ? email : ""}
+          placeholder="seu email"
+          // defaultValue={email ? email : ""}
         />
 
-        <Input
+        <InputPassword
           register={register}
           name="password"
           error={errors.password?.message}
           label="Senha"
-          type="password"
+          type={isText ? "text" : "password"}
         />
+        {/* <button type="button" onClick={() => showPassword()}>
+          mostrar
+        </button> */}
       </div>
       <div className="column-actions">
         <Button type="submit" className="positivo">

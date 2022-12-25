@@ -48,7 +48,7 @@ export const SignForm = () => {
           name="email"
           error={errors.email?.message}
           label="Email"
-          placeholder="fulanito@detal.com"
+          // placeholder="fulanito@detal.com"
         />
 
         <Input

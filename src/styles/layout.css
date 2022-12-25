@@ -65,14 +65,14 @@ footer {
   border-radius: 0.5rem;
 }
 
-.form-title {
+/* .form-title {
   height: 15%;
   width: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--turquoise-500-400);
-}
+} */
 
 .fields {
   height: 60%;
