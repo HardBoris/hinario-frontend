@@ -4,10 +4,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Formulario } from "../../components/Form";
 import { useAuth } from "../../context/UserContext";
-// import "./style.css";
 import { Button } from "../../components/Button";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import { InputPassword } from "../../components/InputPassword";
 
 const signInSchema = yup.object().shape({
@@ -25,8 +23,8 @@ export const LoginForm = () => {
 
   // const emailRecovered = localStorage.getItem("@Hinario:email");
 
-  const { signIn, email, status } = useAuth();
-  const [isText, setIsText] = useState(false);
+  const { signIn, status } = useAuth();
+
   const {
     formState: { errors },
     register,
@@ -36,12 +34,6 @@ export const LoginForm = () => {
   const sender = (data: txtData) => {
     signIn(data);
     history("/");
-  };
-
-  const showPassword = () => {
-    setIsText(!isText);
-    console.log(isText);
-    return isText;
   };
 
   return (
@@ -60,7 +52,6 @@ export const LoginForm = () => {
           error={errors.email?.message}
           label="Email"
           placeholder="seu email"
-          // defaultValue={email ? email : ""}
         />
 
         <InputPassword
@@ -68,11 +59,7 @@ export const LoginForm = () => {
           name="password"
           error={errors.password?.message}
           label="Senha"
-          type={isText ? "text" : "password"}
         />
-        {/* <button type="button" onClick={() => showPassword()}>
-          mostrar
-        </button> */}
       </div>
       <div className="column-actions">
         <Button type="submit" className="positivo">
