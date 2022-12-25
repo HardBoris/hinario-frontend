@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Formulario } from "../../components/Form";
 import { useAuth } from "../../context/UserContext";
+import { InputPassword } from "../../components/InputPassword";
 
 const signInSchema = yup.object().shape({
   email: yup.string().required("Campo obrigatório").email("E-mail inválido"),
@@ -51,7 +52,7 @@ export const SignForm = () => {
           // placeholder="fulanito@detal.com"
         />
 
-        <Input
+        <InputPassword
           register={register}
           name="password"
           error={errors.password?.message}
@@ -59,7 +60,7 @@ export const SignForm = () => {
           type="password"
         />
 
-        <Input
+        <InputPassword
           register={register}
           name="confirmpassword"
           error={errors.confirmpassword?.message}
