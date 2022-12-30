@@ -6,16 +6,17 @@ import { HymnDisplay } from "../../components/Card";
 import { Hino, useHymns } from "../../context/HymnContext";
 import { useAuth } from "../../context/UserContext";
 import { useState, useEffect } from "react";
-import { BGLogo } from "../../components/bg/bg";
+import { BGLogo, UserLogo } from "../../components/Logo";
+import { FaSignOutAlt } from "react-icons/fa";
 
 export const Home = () => {
-  useEffect(() => {
-    hymnal();
-  }, []);
-
   const { hinario, mensaje, filteredHymns, hymnal } = useHymns();
   const [prueba, setPrueba] = useState({} as Hino);
   const { signOut } = useAuth();
+
+  useEffect(() => {
+    hymnal();
+  }, []);
 
   return (
     <div className="app">
@@ -31,8 +32,15 @@ export const Home = () => {
           <div className="header__lettering">
             <h1>Meu Hinário Adventista</h1>
           </div>
-          <div className="header__btn">
-            <button onClick={() => signOut()}>Salir</button>
+          <div className="header__botonera">
+            <div className="user__logo">
+              <UserLogo />
+            </div>
+            <div className="header__btn">
+              <button onClick={() => signOut()}>
+                <FaSignOutAlt />
+              </button>
+            </div>
           </div>
         </div>
       </header>

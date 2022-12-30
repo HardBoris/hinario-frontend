@@ -1,6 +1,5 @@
 import "./style.css";
 import { InputHTMLAttributes, useEffect, useState } from "react";
-import { useSearcher } from "../../context/SearcherContext";
 import { useHymns } from "../../context/HymnContext";
 
 interface SearcherProps extends InputHTMLAttributes<HTMLInputElement> {

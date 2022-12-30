@@ -1,15 +1,41 @@
 .header__content {
   width: 100%;
+  height: 18vh;
 }
 
 .header__lettering {
   width: 100%;
+  height: 50%;
   font-size: 1rem;
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__botonera {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user__logo {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--secondary-font);
 }
 
 .header__btn {
   display: none;
+}
+
+.header__searcher {
+  width: 100%;
+  height: 12vh;
 }
 
 .aside__list {
@@ -76,21 +102,28 @@
 
   .header__content {
     width: 80%;
-    display: flex;
+    /* display: flex; */
   }
 
   .header__lettering {
-    width: 90%;
+    width: 100%;
   }
 
   .header__btn {
     display: block;
     width: 10%;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .header__btn button {
     background-color: var(--turquoise-100-ligth);
+    color: var(--primary-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
   }
 
   .aside__list {
