@@ -1,5 +1,4 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-// import { useNavigate, redirect } from "react-router-dom";
 
 import { api } from "../services/api";
 import { useAuth } from "../context/UserContext";
@@ -7,22 +6,6 @@ import { useAuth } from "../context/UserContext";
 interface HymnProviderProps {
   children: ReactNode;
 }
-
-/* interface User {
-  email: string;
-  userId: string;
-  userCategory: string;
-} */
-
-/* interface AuthState {
-  token: string;
-  user: string;
-} */
-
-/* interface SignInCredentials {
-  email: string;
-  password: string;
-} */
 
 export interface Hino {
   hymnId: string;
@@ -36,13 +19,6 @@ interface HymnContextData {
   mensaje: string;
   filtered: (option: string) => void;
   hymnal: () => void;
-  /* user: string;
-  token: string;
-  signIn: (credentials: SignInCredentials) => Promise<void>;
-  signOut: () => void;
-  signUp: (info: SignInCredentials) => void;
-  mensaje: string;
-  email: string; */
 }
 
 export const HymnContext = createContext<HymnContextData>(
@@ -52,9 +28,6 @@ export const HymnContext = createContext<HymnContextData>(
 const useHymns = () => useContext(HymnContext);
 
 const HymnProvider = ({ children }: HymnProviderProps) => {
-  // const history = useNavigate();
-  // const [email, setEmail] = useState("");
-  // const [hino, setHino] = useState<Hino>({} as Hino)
   const [filteredHymns, setFilteredHymns] = useState<Hino[]>([]);
   const [mensaje, setMensaje] = useState("");
   const [hinario, setHinario] = useState<Hino[]>([]);
