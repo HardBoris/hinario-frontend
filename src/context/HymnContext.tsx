@@ -34,7 +34,7 @@ interface HymnContextData {
   hinario: Hino[];
   filteredHymns: Hino[];
   mensaje: string;
-  filtered: (otion: string) => void;
+  filtered: (option: string) => void;
   hymnal: () => void;
   /* user: string;
   token: string;

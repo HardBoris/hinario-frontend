@@ -1,4 +1,4 @@
-import { UserLogo } from "./user/user";
-import { BGLogo } from "./bg/bg";
+import { UserLogo } from "./user";
+import { BGLogo } from "./bg";
 
 export { BGLogo, UserLogo };
