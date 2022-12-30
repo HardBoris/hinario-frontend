@@ -29,12 +29,23 @@ ul {
   --red-500-ligth: #ff0000;
 }
 
+:root {
+  --yellow-500-ligth: #ffff00;
+  --blue-200-200: #7a7acc;
+  --secondary: #5252cc;
+  --primary-font: #000033;
+  --blue-100-ligth: #ccccff;
+  --primary: #009999;
+  --secondary-font: #e6ffff;
+  --warning: #ff0000;
+}
+
 body {
   width: 100vw;
   height: 100vh;
   margin: auto;
-  color: var(--blue-full-dark);
-  background-color: var(--blue-300-200);
+  color: var(--primary-font);
+  background-color: var(--secondary);
   font-size: 16px;
 }
 
@@ -42,7 +53,7 @@ body {
   width: 320px;
   height: 100vh;
   margin: auto;
-  background: var(--turquoise-500-400);
+  background: var(--primary);
   display: flex;
   justify-content: center;
   align-items: center;

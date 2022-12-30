@@ -23,7 +23,7 @@ export const LoginForm = () => {
 
   // const emailRecovered = localStorage.getItem("@Hinario:email");
 
-  const { signIn, status } = useAuth();
+  const { signIn } = useAuth();
 
   const {
     formState: { errors },
@@ -32,6 +32,7 @@ export const LoginForm = () => {
   } = useForm<txtData>({ resolver: yupResolver(signInSchema) });
 
   const sender = (data: txtData) => {
+    console.log(data);
     signIn(data);
     history("/");
   };
@@ -39,11 +40,7 @@ export const LoginForm = () => {
   return (
     <Formulario onSubmit={handleSubmit(sender)}>
       <div className="form-title">
-        {status === 404 ? (
-          <p>Usuario não existe, por favor cadastre-se!</p>
-        ) : (
-          <h2>Login</h2>
-        )}
+        <h2>Login</h2>
       </div>
       <div className="fields">
         <Input

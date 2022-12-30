@@ -25,7 +25,7 @@ interface UserContextData {
   signUp: (info: SignInCredentials) => void;
   mensaje: string;
   email: string;
-  status: number;
+  // status: number;
 }
 
 const UserContext = createContext<UserContextData>({} as UserContextData);
@@ -44,7 +44,7 @@ const UserProvider = ({ children }: UserProviderProps) => {
   const history = useNavigate();
   const [email, setEmail] = useState("");
   const [mensaje, setMensaje] = useState("");
-  const [status, setStatus] = useState(0);
+  // const [status, setStatus] = useState(0);
 
   const [data, setData] = useState<AuthState>(() => {
     const token = localStorage.getItem("@Hinario:token");
@@ -69,7 +69,7 @@ const UserProvider = ({ children }: UserProviderProps) => {
       })
       .catch((error) => {
         console.log(error);
-        setStatus(error.response.status);
+        // setStatus(error.response.status);
         setMensaje(error.response.data);
       });
   };
@@ -106,7 +106,7 @@ const UserProvider = ({ children }: UserProviderProps) => {
         signUp,
         mensaje,
         email,
-        status,
+        // status,
       }}
     >
       {children}
