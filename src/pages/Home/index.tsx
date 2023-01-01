@@ -2,7 +2,7 @@ import "../../styles/global.css";
 import "../../styles/layout.css";
 import "./style.css";
 import { Searcher } from "../../components/searcher";
-import { HymnDisplay } from "../../components/Card";
+import { HymnDisplay } from "../../components/HymnDisplay";
 import { Hino, useHymns } from "../../context/HymnContext";
 import { useAuth } from "../../context/UserContext";
 import { useState, useEffect } from "react";

@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { api } from "../services/api";
+import { localApi as api } from "../services/api";
 
 interface UserProviderProps {
   children: ReactNode;
@@ -83,8 +83,8 @@ const UserProvider = ({ children }: UserProviderProps) => {
         setEmail(email);
       })
       .then(() => history("/login"))
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.log(error);
       });
   };
 
