@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 
-import { localApi as api } from "../services/api";
+// import { localApi as api } from "../services/api";
+import { api } from "../services/api";
 import { useAuth } from "../context/UserContext";
 
 interface HymnProviderProps {

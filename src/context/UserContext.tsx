@@ -1,7 +1,9 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-import { localApi as api } from "../services/api";
+// import { localApi as api } from "../services/api";
+import { api } from "../services/api";
 
 interface UserProviderProps {
   children: ReactNode;
@@ -23,7 +25,7 @@ interface UserContextData {
   signIn: (credentials: SignInCredentials) => Promise<void>;
   signOut: () => void;
   signUp: (info: SignInCredentials) => void;
-  mensaje: string;
+  // mensaje: string;
   email: string;
   // status: number;
 }
@@ -43,7 +45,7 @@ const useAuth = () => {
 const UserProvider = ({ children }: UserProviderProps) => {
   const history = useNavigate();
   const [email, setEmail] = useState("");
-  const [mensaje, setMensaje] = useState("");
+  // const [messageError, setMessageError] = useState("");
   // const [status, setStatus] = useState(0);
 
   const [data, setData] = useState<AuthState>(() => {
@@ -58,33 +60,54 @@ const UserProvider = ({ children }: UserProviderProps) => {
   });
 
   const signIn = async ({ email, password }: SignInCredentials) => {
+    const aviso = toast.loading("Por Favor espere...");
     await api
       .post("/users/login", { email, password })
       .then((response) => {
         const { user, token } = response.data;
         localStorage.setItem("@Hinario:token", token);
         localStorage.setItem("@Hinario:user", user);
-
         setData({ user, token });
+        toast.update(aviso, {
+          render: "Bem-Vindo ao Meu Hinário!",
+          type: "success",
+          isLoading: false,
+          autoClose: 3000,
+        });
       })
       .catch((error) => {
-        console.log(error);
-        // setStatus(error.response.status);
-        setMensaje(error.response.data);
+        toast.update(aviso, {
+          render: error.response.data.message,
+          type: "error",
+          isLoading: false,
+          autoClose: 3000,
+        });
       });
   };
 
   const signUp = async ({ email, password }: SignInCredentials) => {
+    const aviso = toast.loading("Por Favor espere...");
     await api
       .post("/users/register", { email, password })
       .then((response) => {
         console.log(response.data);
         const { email } = response.data;
         setEmail(email);
+        toast.update(aviso, {
+          render: "Novo usuário cadastrado!",
+          type: "success",
+          isLoading: false,
+          autoClose: 3000,
+        });
       })
       .then(() => history("/login"))
       .catch((error) => {
-        console.log(error);
+        toast.update(aviso, {
+          render: error.response.data.message,
+          type: "error",
+          isLoading: false,
+          autoClose: 3000,
+        });
       });
   };
 
@@ -104,7 +127,7 @@ const UserProvider = ({ children }: UserProviderProps) => {
         signIn,
         signOut,
         signUp,
-        mensaje,
+        // mensaje,
         email,
         // status,
       }}
