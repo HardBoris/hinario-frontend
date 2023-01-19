@@ -1,57 +1,3 @@
-.header__content {
-  width: 100%;
-  height: 18vh;
-}
-
-.header__lettering {
-  width: 100%;
-  height: 50%;
-  font-size: 1rem;
-  /* text-align: center; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.header__botonera {
-  width: 100%;
-  height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.user__logo {
-  width: 10%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--secondary-font);
-}
-
-.header__btn {
-  display: none;
-}
-
-.header__searcher {
-  width: 100%;
-  height: 12vh;
-}
-
-.aside__list {
-  width: 300px;
-  height: 100%;
-  overflow: auto;
-  background-color: var(--blue-300-200);
-  color: var(--yellow-500-ligth);
-}
-
-.aside__msg {
-  color: var(--red-500-ligth);
-  text-align: center;
-  background-color: var(--blue-full-dark);
-}
-
 .section__title {
   width: 100%;
   text-align: center;
@@ -96,44 +42,11 @@
 }
 
 @media (min-width: 769px) {
-  .header__searcher {
-    width: 20%;
-  }
-
-  .header__content {
-    width: 80%;
-    /* display: flex; */
-  }
-
-  .header__lettering {
-    width: 100%;
-  }
-
-  .header__btn {
-    display: block;
-    width: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .header__btn button {
-    background-color: var(--turquoise-100-ligth);
-    color: var(--primary-font);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-  }
-
-  .aside__list {
-    width: 100%;
-    white-space: nowrap;
-    background-color: var(--yellow-500-ligth);
-    color: var(--blue-300-200);
-  }
-
   .footer__btn button {
+    display: none;
+  }
+
+  .footer__user__logo {
     display: none;
   }
 

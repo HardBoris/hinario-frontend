@@ -1,17 +1,19 @@
 import "../../styles/global.css";
 import "../../styles/layout.css";
 import "./style.css";
-import { Searcher } from "../../components/searcher";
+// import { Searcher } from "../../components/searcher";
 import { HymnDisplay } from "../../components/HymnDisplay";
 import { Hino, useHymns } from "../../context/HymnContext";
 import { useAuth } from "../../context/UserContext";
 import { useState, useEffect } from "react";
 import { BGLogo, UserLogo } from "../../components/Logo";
 import { FaSignOutAlt } from "react-icons/fa";
+import { HymnCard } from "../../components/HymnCard";
+import { HeaderBG } from "../../components/Header";
 
 export const Home = () => {
-  const { hinario, mensaje, filteredHymns, hymnal } = useHymns();
-  const [prueba, setPrueba] = useState({} as Hino);
+  const { hymnal } = useHymns();
+  const [hino, setHino] = useState({} as Hino);
   const { signOut } = useAuth();
 
   useEffect(() => {
@@ -21,91 +23,39 @@ export const Home = () => {
   return (
     <div className="app">
       <header>
-        <div className="header__searcher">
-          <Searcher
-            name="hymnal-searcher"
-            label="Buscador de Himnos"
-            placeholder="Número o titulo del himno"
-          />
-        </div>
-        <div className="header__content">
-          <div className="header__lettering">
-            <h1>Meu Hinário Adventista</h1>
-          </div>
-          <div className="header__botonera">
-            <div className="user__logo">
-              <UserLogo />
-            </div>
-            <div className="header__btn">
-              <button onClick={() => signOut()}>
-                <FaSignOutAlt />
-              </button>
-            </div>
-          </div>
-        </div>
+        <HeaderBG />
       </header>
       <main>
         <aside>
-          <div className="aside__list">
-            {filteredHymns.length === 0 ? (
-              hinario.length !== 0 ? (
-                hinario.map((item) => (
-                  <div
-                    key={item.hymnId}
-                    role="button"
-                    onClick={() => setPrueba(item)}
-                    style={{ cursor: "pointer" }}
-                  >
-                    <p>
-                      <span>{item.hymnNumber} - </span>
-                      {item.hymnTitle}
-                    </p>
-                  </div>
-                ))
-              ) : (
-                <div className="aside__msg">
-                  <p>{mensaje}</p>
-                </div>
-              )
-            ) : (
-              filteredHymns.map((item) => (
-                <div
-                  key={item.hymnId}
-                  role="button"
-                  onClick={() => setPrueba(item)}
-                  style={{ cursor: "pointer" }}
-                >
-                  <p>
-                    <span>{item.hymnNumber} - </span>
-                    {item.hymnTitle}
-                  </p>
-                </div>
-              ))
-            )}
-          </div>
+          <HymnCard setHino={setHino} />
         </aside>
         <section>
           <div className="section__title">
             <h1>Igreja Adventista do Sétimo Dia</h1>
           </div>
           <div className="display__box">
-            {prueba.hymnId ? (
+            {hino.hymnId ? (
               <HymnDisplay
-                numero={prueba.hymnNumber}
-                titulo={prueba.hymnTitle}
-                id={prueba.hymnId}
+                numero={hino.hymnNumber}
+                titulo={hino.hymnTitle}
+                id={hino.hymnId}
               />
             ) : (
               <div className="display">
-                <h1>Selecciona un titulo</h1>
+                <h1>Escolha um título</h1>
               </div>
             )}
           </div>
         </section>
       </main>
       <footer>
+        <div className="footer__user__logo">
+          <UserLogo />
+        </div>
         <div className="footer__btn">
-          <button onClick={() => signOut()}>Salir</button>
+          <button onClick={() => signOut()}>
+            <FaSignOutAlt />
+          </button>
         </div>
         <div className="footer__logo">
           <div>
