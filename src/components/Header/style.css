@@ -79,11 +79,21 @@
     font-size: 2rem;
   }
 
+  .header__btn button:hover {
+    background-color: var(--secondary-font);
+    color: var(--primary-font);
+  }
+
   .user__logo {
     width: 50px;
     height: 50px;
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .user__logo:hover {
+    background-color: var(--secondary-font);
   }
 }
