@@ -7,13 +7,15 @@ export const FooterBG = () => {
   const { signOut } = useAuth();
   return (
     <>
-      <div className="footer__user__logo">
-        <UserLogo />
-      </div>
-      <div className="footer__btn">
-        <button onClick={() => signOut()}>
-          <FaSignOutAlt />
-        </button>
+      <div className="footer__botonera">
+        <div className="footer__user__logo">
+          <UserLogo />
+        </div>
+        <div className="footer__btn">
+          <button onClick={() => signOut()}>
+            <FaSignOutAlt />
+          </button>
+        </div>
       </div>
       <div className="footer__logo">
         <div>

@@ -1,11 +1,14 @@
 .header__content {
   width: 100%;
-  height: 35%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header__lettering {
   width: 100%;
-  height: 50%;
+  height: 100%;
   font-size: 1rem;
   display: flex;
   justify-content: center;
@@ -13,11 +16,7 @@
 }
 
 .header__botonera {
-  width: 100%;
-  height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none;
 }
 
 .user__logo {
@@ -32,7 +31,7 @@
 
 .header__searcher {
   width: 100%;
-  height: 65%;
+  height: 60%;
 }
 
 @media (min-width: 769px) {
@@ -44,23 +43,36 @@
   .header__content {
     width: 80%;
     height: 100%;
+    flex-direction: column;
   }
 
   .header__lettering {
     width: 100%;
+    height: 50%;
+  }
+
+  .header__botonera {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .header__btn {
     display: block;
-    width: 10%;
+    width: 50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .header__btn button {
-    background-color: var(--turquoise-100-ligth);
-    color: var(--primary-font);
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary);
+    color: var(--secondary-font);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,6 +80,8 @@
   }
 
   .user__logo {
+    width: 50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
