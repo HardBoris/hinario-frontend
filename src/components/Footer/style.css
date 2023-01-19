@@ -1,0 +1,38 @@
+.footer__btn {
+  width: 150px;
+  text-align: center;
+}
+
+.footer__btn button {
+  background-color: var(--turquoise-500-400);
+  color: var(--turquoise-100-ligth);
+  font-size: 1.1rem;
+}
+
+.footer__logo {
+  display: none;
+}
+
+#bg__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 430px) and (max-width: 768px) {
+}
+
+@media (min-width: 769px) {
+  .footer__btn button {
+    display: none;
+  }
+
+  .footer__user__logo {
+    display: none;
+  }
+
+  .footer__logo {
+    display: block;
+    text-align: center;
+  }
+}

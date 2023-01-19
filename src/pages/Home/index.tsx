@@ -10,6 +10,7 @@ import { BGLogo, UserLogo } from "../../components/Logo";
 import { FaSignOutAlt } from "react-icons/fa";
 import { HymnCard } from "../../components/HymnCard";
 import { HeaderBG } from "../../components/Header";
+import { FooterBG } from "../../components/Footer";
 
 export const Home = () => {
   const { hymnal } = useHymns();
@@ -49,22 +50,7 @@ export const Home = () => {
         </section>
       </main>
       <footer>
-        <div className="footer__user__logo">
-          <UserLogo />
-        </div>
-        <div className="footer__btn">
-          <button onClick={() => signOut()}>
-            <FaSignOutAlt />
-          </button>
-        </div>
-        <div className="footer__logo">
-          <div>
-            Powered by{" "}
-            <span id="bg__logo">
-              <BGLogo />
-            </span>
-          </div>
-        </div>
+        <FooterBG />
       </footer>
     </div>
   );
