@@ -2,7 +2,7 @@ import { createContext, ReactNode, useContext, useState } from "react";
 
 // import { localApi as api } from "../services/api";
 import { api } from "../services/api";
-import { useAuth } from "../context/UserContext";
+// import { useAuth } from "../context/UserContext";
 
 interface HymnProviderProps {
   children: ReactNode;
@@ -32,14 +32,14 @@ const HymnProvider = ({ children }: HymnProviderProps) => {
   const [filteredHymns, setFilteredHymns] = useState<Hino[]>([]);
   const [mensaje, setMensaje] = useState("");
   const [hinario, setHinario] = useState<Hino[]>([]);
-  const { token } = useAuth();
+  // const { token } = useAuth();
 
   const hymnal = () => {
     api
       .get("/hymns", {
-        headers: {
+        /* headers: {
           authorization: `Bearer ${token}`,
-        },
+        }, */
       })
       .then((response) => {
         setHinario(response.data);
