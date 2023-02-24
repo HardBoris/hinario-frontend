@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 // import { localApi as api } from "../services/api";
 import { api } from "../services/api";
@@ -51,6 +57,10 @@ const HymnProvider = ({ children }: HymnProviderProps) => {
         setHinario([]);
       });
   };
+
+  useEffect(() => {
+    hymnal();
+  }, []);
 
   const filtered = (option: string) => {
     const filtro: Hino[] = hinario.filter(
