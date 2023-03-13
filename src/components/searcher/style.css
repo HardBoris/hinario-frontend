@@ -39,6 +39,8 @@
   background-color: var(--turquoise-100-ligth);
   font-size: 0.9rem;
   text-align: right;
+  border: none;
+  border-radius: 8px;
 }
 
 @media (min-width: 769px) {

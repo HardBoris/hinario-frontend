@@ -38,11 +38,7 @@ export const Searcher = ({
           }}
         />
         {search ? (
-          <button
-            className="searcher__x"
-            style={{ width: "20px", borderRadius: 0 }}
-            onClick={() => setSearch("")}
-          >
+          <button className="searcher__x" onClick={() => setSearch("")}>
             X
           </button>
         ) : (

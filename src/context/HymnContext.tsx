@@ -5,9 +5,10 @@ import {
   useEffect,
   useState,
 } from "react";
+import hymnal from "../assets/data/hymnal.json";
 
 // import { localApi as api } from "../services/api";
-import { api } from "../services/api";
+// import { api } from "../services/api";
 // import { useAuth } from "../context/UserContext";
 
 interface HymnProviderProps {
@@ -25,7 +26,7 @@ interface HymnContextData {
   filteredHymns: Hino[];
   mensaje: string;
   filtered: (option: string) => void;
-  hymnal: () => void;
+  // hymnal: () => void;
 }
 
 export const HymnContext = createContext<HymnContextData>(
@@ -37,15 +38,15 @@ const useHymns = () => useContext(HymnContext);
 const HymnProvider = ({ children }: HymnProviderProps) => {
   const [filteredHymns, setFilteredHymns] = useState<Hino[]>([]);
   const [mensaje, setMensaje] = useState("");
-  const [hinario, setHinario] = useState<Hino[]>([]);
+  const [hinario, setHinario] = useState<Hino[]>(hymnal);
   // const { token } = useAuth();
 
-  const hymnal = () => {
+  /* const hymnal = () => {
     api
       .get("/hymns", {
-        /* headers: {
+        headers: {
           authorization: `Bearer ${token}`,
-        }, */
+        },
       })
       .then((response) => {
         setHinario(response.data);
@@ -56,11 +57,11 @@ const HymnProvider = ({ children }: HymnProviderProps) => {
         setMensaje(message);
         setHinario([]);
       });
-  };
+  }; */
 
-  useEffect(() => {
+  /* useEffect(() => {
     hymnal();
-  }, []);
+  }, []); */
 
   const filtered = (option: string) => {
     const filtro: Hino[] = hinario.filter(
@@ -74,9 +75,7 @@ const HymnProvider = ({ children }: HymnProviderProps) => {
   console.log(mensaje);
 
   return (
-    <HymnContext.Provider
-      value={{ hinario, mensaje, filteredHymns, filtered, hymnal }}
-    >
+    <HymnContext.Provider value={{ hinario, mensaje, filteredHymns, filtered }}>
       {children}
     </HymnContext.Provider>
   );
